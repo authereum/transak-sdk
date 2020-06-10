@@ -124,6 +124,7 @@ async function generateURL(configData) {
                 if (configData.hostURL) partnerData.hostURL = (configData.hostURL ? configData.hostURL : window.location.origin);
                 if (configData.disableWalletAddressForm) partnerData.disableWalletAddressForm = configData.disableWalletAddressForm;
                 if (configData.cryptoCurrencyList) partnerData.cryptoCurrencyList = configData.cryptoCurrencyList.split(',');
+                if (configData.accessToken) partnerData.access_token = configData.accessToken;
                 queryString = queryStringLib.stringify(partnerData);
                 // }
             } catch (e) {
