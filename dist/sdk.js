@@ -1357,7 +1357,7 @@ TransakSDK.prototype.modal = async function () {
         width,
         height,
         partnerData
-      } = await generateURL(this.partnerData);
+      } = await this.generateURL(this.partnerData);
       let wrapper = document.createElement('div');
       wrapper.id = "transakFiatOnOffRamp";
       wrapper.innerHTML = `<div class="transak_modal-overlay" id="transak_modal-overlay"></div><div class="transak_modal" id="transak_modal"><div class="transak_modal-content"><span class="transak_close">${_svg.closeSVGIcon}</span><div class="transakContainer"><iframe id="transakOnOffRampWidget" src="${url}" style="width: ${width}; height: ${height}"></iframe></div></div></div>`;
@@ -1394,7 +1394,7 @@ TransakSDK.prototype.modal = async function () {
   }
 };
 
-async function generateURL(configData) {
+TransakSDK.prototype.generateURL = async function (configData) {
   let partnerData = {},
       environment = 'development',
       queryString = "",
@@ -1460,7 +1460,7 @@ async function generateURL(configData) {
     partnerData,
     url: `${_constants.config.ENVIRONMENT[environment].FRONTEND}?${queryString}`
   };
-}
+};
 
 async function setStyle(themeColor, width, height) {
   let style = await document.createElement('style');
